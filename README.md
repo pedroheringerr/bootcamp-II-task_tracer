@@ -73,3 +73,31 @@ Tarefa cadastrada com sucesso.
 Não há suíte automatizada nesta fase. A validação manual pode ser feita executando
 o programa e conferindo cadastro válido, título vazio, prioridade inválida,
 listagem com e sem tarefas e saída pelo menu.
+
+## Execução com Docker
+
+### Construir a imagem
+
+Na raiz do projeto, execute:
+
+```bash
+docker build -t tasktracker-app .
+```
+
+### Rodar o container diretamente
+
+```bash
+docker run --rm -it tasktracker-app
+```
+
+### Rodar com Docker Compose
+
+O serviço está configurado com entrada padrão aberta e terminal virtual para
+preservar a interação da aplicação CLI:
+
+```bash
+docker compose run --rm tasktracker
+```
+
+O `docker-compose.yml` constrói a imagem `tasktracker-app` e inicia
+`python src/main.py`.
